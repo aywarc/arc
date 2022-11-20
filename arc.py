@@ -27,8 +27,8 @@ def popBalloon(l, tello):
         tello.move_down(x*30) # move to y coordinate
     else:
         tello.move_up(x*30) # move to y coordinate
-    tello.move_forward(70)
-    tello.move_back(70)
+    tello.move_forward(75)
+    tello.move_back(75)
     nl = []
     for i in l[1:]:
         nl.append([i[0]-x,i[1]-y])
@@ -64,6 +64,7 @@ def main():
                     pass
         positions = [[i[0]-3.5,i[1]] for i in positions]
         positions.sort(key=distance)
+        tello.move_forward(200)
         popBalloon(positions, tello)
         tello.land()
     except KeyboardInterrupt:
